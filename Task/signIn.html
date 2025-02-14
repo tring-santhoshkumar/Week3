@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .signinpage{
+            width: 100%;
+            height: 740px;
+            background-color: #292929;
+        }
+        .head{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .page{
+            width: 50%;
+            height: 740px;
+        }
+        img{
+            margin-left: 70px;
+            margin-top: 20px;
+        }
+        /* .main{
+            margin-left: 120px;
+        } */
+        .sign{
+            margin-top: 20px;
+            text-align: center;
+        }
+        .signchange{
+            border: none;
+            width: 110px;
+            height: 50px;
+            font-size: 24px;
+            line-height: 30px;
+            font-family: "Rajdhani";
+            color: #FFFFFF4D;
+            background-color: #FFFFFF1A;
+            padding: 8px;
+            gap: 10px;
+            text-align: center;
+        }
+        form{
+            margin-left: 130px;
+            margin-top: 20px;
+        }
+        p{
+            padding-top:10px;
+            padding-bottom: 10px;
+            font-size: 14px;
+            line-height: 17px;
+            font-family: "rajdhani";
+            font-weight: 600;
+            color: #FFFFFFE5;
+        }
+        .inputfield{
+            margin-top: 15px;
+            margin-bottom: 15px;
+            height: 54px;
+            width: 486px;
+            color: #FFFFFF80;
+            background-color:#292929;
+            border: 1px solid #FFFFFF33;
+        }
+        .submitbtn{
+            margin-top: 40px;
+            height: 54px;
+            width: 486px;
+            font-size: 16px;
+            font-family: "open sans";
+            line-height: 20px;
+            background-color:#EBA832;
+            color:#292929;
+            font-weight: 600;
+            border: none;
+        }
+        hr{
+            margin-top: 30px;
+            margin-right: 40px;
+            position: relative;
+            border: 1px solid #FFFFFF26;    
+        }
+        .or{
+            position: absolute;
+            text-align: center;
+            margin-top: -12px;
+            margin-left: 224px;
+            width: 38px;
+            color: #FEFEFE;
+            font-family: "open sans";
+            background-color: #292929;
+        }
+        .googlesignup{
+            margin-top: 40px;
+            height: 54px;
+            width: 486px;
+            font-size: 16px;
+            font-family: "open sans";
+            font-weight: 600;
+            line-height: 20px;
+            color: #292929;
+            border: none;
+            background-image: url(/images/ic_google.svg);
+            background-repeat: no-repeat;
+            background-position-x: 296px;
+            background-position-y: center;
+        }
+        .footer{
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: "open sans";
+            line-height: 18px;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+<body>
+    <section class="signinpage">
+        <div class="head">
+            <div class="page">
+                <img src="/images/signup-logo.svg" alt="tringapps logo">
+                <div class="main">
+                    <div class="sign"><button class="signchange" onclick="signin()" style="color:#FEFEFE; background-color:#EBA832;;">Sign In</button><button class="signchange" onclick="signup()">Sign Up</button></div>
+                    <form id="signupform">
+                        <p class="heading">Your Email<span style="color:#cc1e4f">*</span></p><input class="inputfield" id="signInemail" type="email" placeholder="Enter email" pattern=".+@tringapps.com" required style="padding-left: 20px; width: 466px;">
+                        <p class="heading">Password<span style="color:#cc1e4f">*</span></p>
+                      <input class="inputfield" id="signInpassword" type="password" placeholder="Enter password" required style="padding-left: 20px; width: 464px; background-image: url(/images/Vectorsignin.svg); background-repeat: no-repeat; background-position-x: 444px ; background-position-y: center;">
+                      <br>
+                      <input type="checkbox" id="remember" required style="margin-right: 5px;"><span style="color: #FFFFFF;">Remember me</span><br>
+                      <button type="submit" class="submitbtn">Submit</button>
+                      <hr>
+                      <div class="or">OR</div>
+                      <button class="googlesignup">Sign Up with</button>
+                    </form>
+                    <div class="footer">
+                        <span>Don't have an account?</span> <a href="signup.html" style="color: #EBA832;">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="page" style="background-image: url(/images/signin.svg); background-repeat: no-repeat;"></div>
+        </div>
+    </section>
+    <script>
+        function signin(){
+        window.location.href = "signIn.html";
+      }
+        function signup(){
+        window.location.href = "signup.html";
+      }
+      document.getElementById("signupform").addEventListener("submit",function(event){
+        event.preventDefault();
+        let userEmail = document.getElementById("signInemail").value;
+        let userPass = document.getElementById("signInpassword").value;
+        let storedEmail = localStorage.getItem("email");
+        let storedPass = localStorage.getItem("password");
+        if(userEmail == storedEmail && userPass == storedPass){
+            alert("Login Successfull!!!");
+            window.location.href = "project.html";
+        }
+        else{
+            alert("Invalid User Details,Please try again.");
+        }
+      });
+    </script>
+</body>
+</html>

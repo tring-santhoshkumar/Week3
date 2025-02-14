@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="stylesignup.css">
+</head>
+<body>
+    <section class="signuppage">
+        <div class="head">
+            <div class="page">
+                <img src="/images/signup-logo.svg" alt="tringapps logo">
+                <div class="main">
+                    <div class="sign"><button class="signchange" onclick="signin()">Sign In</button><button class="signchange" onclick="signup()" style="color:#FEFEFE; background-color:#EBA832;">Sign Up</button></div>
+                    <form id="signupform">
+                      <p class="heading">Your Name<span style="color: #CC1E4F;">*</span></p><input class="language" id="name" type="text" placeholder="Enter your name" pattern="{4-}" required style="padding-left: 20px; width: 466px;">
+                      <p class="heading">Email<span style="color: #CC1E4F;">*</span></p><input class="language" id="email" type="email" placeholder="Enter email" pattern=".+@tringapps.com" required style="padding-left: 20px; width: 466px;">
+                      <p class="heading">Languages</p>
+                      <select name="language" id="lang" class="language" required>
+                        <option value="select">Select an option</option>
+                        <option value="Tamil">Tamil</option>
+                        <option value="English">English</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Hindi">Hindi</option>
+                        <option value="German">German</option>
+                      </select>
+                      <p class="heading">Phone number</p>
+                      <div class="countrycode">
+                        <select class="countrycodeselect" required style="width: 128px; height: 54px; margin-top:15px; padding-left: 30px; background-color:#292929; border: 1px solid #FFFFFF33; color: white; background-image: url(/images/Flags.svg); background-repeat: no-repeat; background-position-y: center; background-position-x: 5px;">
+                          <option value="+1">+1</option>
+                          <option value="+91">+91</option>
+                          <option value="+81">+81</option>
+                          <option value="+44">+44</option>
+                          <option value="+49">+49</option>
+                        </select>
+                        <input class="language" id="mobile" type="tel" placeholder="Phone number" pattern="[0-9]{10}" required style="padding-left: 20px; width: 326px;">
+                      </div>
+                      <p class="heading">Password</p>
+                      <input class="language" id="password" type="password" placeholder="Enter password" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*]).{8}" required style="padding-left: 20px; width: 464px; background-image: url(/images/Vectorsignin.svg); background-repeat: no-repeat; background-position-x: 444px ; background-position-y: center;">
+                      <div class="checkboxes">
+                        <label class="label">
+                          <input type="checkbox" id="remember" required style="background-color:#292929; color: #292929;"> Remember me
+                        </label><br>
+                        <label class="label">
+                          <input type="checkbox" id="terms" required> I agree to all the 
+                          <a href="#" style="color: #EBA832;">Terms</a> and <a href="#" style="color: #EBA832;">Privacy Policy</a>
+                        </label><br>
+                        <label class="label">
+                          <input type="radio" name="age" id="over18" required> I'm over 18+
+                        </label><br>
+                      </div>
+            
+                      <button type="submit" class="submitbtn">Submit</button>
+                      <hr>
+                      <div class="or">OR</div>
+                      <button class="googlesignup">Sign Up with</button>
+                    </form>
+                    <div class="footer">
+                      <span>Have an account?</span> <a href="signIn.html" style="color: #EBA832;">Sign in</a>
+                    </div>
+                </div>
+            </div>
+            <div class="page" style="background-image: url(/images/signimage.svg); background-repeat: no-repeat;"></div>
+        </div>
+    </section>
+    <script>
+      function signin(){
+        window.location.href = "signIn.html";
+      }
+      function signup(){
+        window.location.href = "signup.html";
+      }
+      // sessionStorage***
+
+    //   document.getElementById("signupform").addEventListener("submit", function(event) {
+    //   event.preventDefault(); 
+    //   sessionStorage.setItem("name", document.getElementById("name").value);
+    //   sessionStorage.setItem("email", document.getElementById("email").value);
+    //   sessionStorage.setItem("lang", document.getElementById("lang").value);
+    //   sessionStorage.setItem("mobile", document.getElementById("mobile").value);
+    //   sessionStorage.setItem("password", document.getElementById("password").value);
+    //   window.location.href = "welcome.html";
+    // });
+
+
+
+        // localStorage***
+        
+    document.getElementById("signupform").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      localStorage.setItem("name", document.getElementById("name").value);
+      localStorage.setItem("email", document.getElementById("email").value);
+      localStorage.setItem("lang", document.getElementById("lang").value);
+      localStorage.setItem("mobile", document.getElementById("mobile").value);
+      localStorage.setItem("password", document.getElementById("password").value);
+      window.location.href = "project.html";
+    });
+    </script>
+</body>
+</html>
